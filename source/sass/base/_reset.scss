@@ -1,0 +1,53 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: none;
+    outline: 0;
+    outline-offset: 0;
+    text-decoration: none;
+  }
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+.btn.focus,
+.btn:focus,
+.btn:active:focus,
+.btn:active.focus,
+.btn.active:focus,
+.btn.active.focus,
+button:focus,
+input:focus,
+textarea:focus {
+  box-shadow: none;
+  outline: 0;
+  outline-offset: 0;
+}
+
+*:focus {
+  outline: 0;
+}

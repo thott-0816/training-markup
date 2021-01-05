@@ -1,0 +1,58 @@
+// ======================================================
+// Abstracts :: Variables
+// ======================================================
+
+$font-family-base: 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', 'Meiryo',
+  'Hiragino Kaku Gothic Pro', '游ゴシック', 'メイリオ', 'MS ゴシック',
+  'sans-serif';
+
+// Paths
+$path-image: '../images';
+$path-fonts: '../fonts';
+
+// color
+$black: #000;
+$white: #fff;
+
+// >> Font-weight
+$font-weight-exlight: 100;
+$font-weight-light: 300;
+$font-weight-base: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 600;
+$font-weight-bolder: 700;
+$font-weight-exbold: 800;
+$font-weight-boldest: 900;
+
+// z-index
+$z-indexes: (
+  under: -1,
+  base: 1,
+  sticky: 1020,
+  fixed: 1030,
+  modalbackdrop: 1040,
+  modal: 1050,
+  popover: 1060,
+  tooltip: 1070,
+);
+
+// Map color themes. Create color utility for background and text color
+$colors-theme: (
+  'black': $black,
+  'white': $white,
+);
+
+// Grid screen
+$grid-breakpoints: (
+  vs: 0,
+  se: 375px,
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+) !default;
+
+$widths: (
+  10: 10px,
+  100: 100%,
+);
