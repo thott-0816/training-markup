@@ -1,0 +1,35 @@
+//-------------------------------------------------------
+//- Modules :: Buttons
+//-------------------------------------------------------
+
+mixin buttons({ text, type, size, isFull, iconFont, iconImage, modal, modalId, fwBase, disabled })
+  button.button(
+    class= type ? `button--${type}` : null
+    class= size ? `button--${size}` : null
+    class= fwBase ? `button--${fwBase}` : null
+    class= (isFull === true) ? 'button--full' : null
+    data-toggle= modal,
+    data-target= modalId,
+    disabled= disabled
+  )&attributes(attributes)
+    if (iconFont !== '' && iconFont !== undefined)
+      +icon-fonts(iconFont)(class='button__icon')
+    if (iconImage !== '' && iconImage !== undefined)
+      +icon-images(iconImage)(class='button__icon')
+    span.button__text
+      | #{text}
+
+mixin buttons-link({ href, text, type, size, isFull, iconFont, iconImage })
+  a.button(
+    class= type ? `button--${type}` : null
+    class= size ? `button--${size}` : null
+    class= (isFull === true) ? 'button--full' : null
+    href= href ? href : '#'
+    role='button'
+  )&attributes(attributes)
+    if (iconFont !== '' && iconFont !== undefined)
+      +icon-fonts(iconFont)(class='button__icon')
+    if (iconImage !== '' && iconImage !== undefined)
+      +icon-images(iconImage)(class='button__icon')
+    span.button__text
+      | #{text}
