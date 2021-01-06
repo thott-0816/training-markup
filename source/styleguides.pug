@@ -34,6 +34,10 @@ block main
         id: 'colors',
         title: 'Colors'
       },
+      {
+        id: 'buttons',
+        title: 'Buttons'
+      },
     ];
 
   .container-fluid
@@ -74,5 +78,7 @@ block main
               case val.id
                 when 'colors'
                   include styleguides/_colors
+                when 'buttons'
+                  include styleguides/_buttons
                 default
                   - throw new Error('"val.id" must be in "components" variable')
