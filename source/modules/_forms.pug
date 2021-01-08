@@ -2,14 +2,20 @@
 //- Modules :: Buttons
 //-------------------------------------------------------
 
-mixin form-inputs({ attribute, label_text, placeholder })
+mixin form-inputs({ attribute, label_text, placeholder, isInvalid })
   .form-group(    
   )&attributes(attributes)
     label.font-weight-bold(for= attribute)= label_text
-    input.form-control(type= attribute, placeholder= placeholder)
+    input.form-control(
+      class= (isInvalid === true) ? 'is-invalid' : null
+      type= attribute
+      placeholder= placeholder
+    )
+    if (isInvalid === true)
+      .invalid-feedback Data Invalid
 
 mixin form-checkbox({ id, label_text })
-  .form-group.form-check(    
+  label.custom-control.custom-checkbox(
   )&attributes(attributes)
-    input.form-check-input(type='checkbox' id= id)
-    label.form-check-label(for= id)= label_text
+    input.custom-control-input(type='checkbox' id= id)
+    label.custom-control-label(for= id)= label_text
