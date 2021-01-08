@@ -15,7 +15,6 @@ mixin form-inputs({ attribute, label_text, placeholder, isInvalid })
       .invalid-feedback Data Invalid
 
 mixin form-checkbox({ id, label_text })
-  label.custom-control.custom-checkbox(
-  )&attributes(attributes)
-    input.custom-control-input(type='checkbox' id= id)
-    label.custom-control-label(for= id)= label_text
+  label.checkbox-container(for= id).d-flex.align-items-center&attributes(attributes)= label_text
+    input(type='checkbox' id= id)
+    span.checkmark
