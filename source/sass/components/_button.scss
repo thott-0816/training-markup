@@ -13,8 +13,16 @@
     color: $white;
   }
 
+  &__icon {
+    height: 25px;
+  }
+
   &--primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  &--full {
+    border-radius: 0;
   }
 }

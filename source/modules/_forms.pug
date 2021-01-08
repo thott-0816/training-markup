@@ -1,0 +1,15 @@
+//-------------------------------------------------------
+//- Modules :: Buttons
+//-------------------------------------------------------
+
+mixin form-inputs({ attribute, label_text, placeholder })
+  .form-group(    
+  )&attributes(attributes)
+    label.font-weight-bold(for= attribute)= label_text
+    input.form-control(type= attribute, placeholder= placeholder)
+
+mixin form-checkbox({ id, label_text })
+  .form-group.form-check(    
+  )&attributes(attributes)
+    input.form-check-input(type='checkbox' id= id)
+    label.form-check-label(for= id)= label_text

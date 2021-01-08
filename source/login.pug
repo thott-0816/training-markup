@@ -20,62 +20,67 @@ block main
                   -
                     var inputList = [
                       {
-                        attribute: "email",
-                        text: "Email address",
-                        placeholder: "example@email.com"
+                        attribute: 'email',
+                        label_text: 'Email address',
+                        placeholder: 'example@email.com'
                       },
                       {
-                        attribute: "password",
-                        text: "Password",
-                        placeholder: "123456"
+                        attribute: 'password',
+                        label_text: 'Password',
+                        placeholder: '123456'
                       },
                     ]
                   each item in inputList
-                    .form-group.text-left
-                      label.font-weight-bold(for= item.attribute)= item.text
-                      input.form-control(type= item.attribute, placeholder= item.placeholder)
-                .form-group.form-check.mt-3
-                  input.form-check-input(type="checkbox" id="exampleCheck1")
-                  label.form-check-label(for="exampleCheck1") Remember me
+                    +form-inputs({
+                      attribute: item.attribute,
+                      label_text: item.label_text,
+                      placeholder: item.placeholder
+                    })(class='text-left')
+                +form-checkbox({
+                  id: 'exampleCheck1',
+                  label_text: 'Remember me'
+                })(class='mt-3')
                 +buttons({
                   text: 'Login',
                   type: 'primary'
-                })(class="w-50")
+                })(class='w-50')
                 .mt-3
-                  a.text-primary(href="#") Forgot my password
+                  a.text-primary(href='#') Forgot my password
                 .mt-2
-                  a.text-danger(href="#") Create account
+                  a.text-danger(href='#') Create account
               .border-top.pb-3.pt-3
-                h6.font-weight-bold(for="email") Login via
-                .d-flex.flex-column.justify-content-around.ml-5.mr-5
+                h6.font-weight-bold(for='email') Login via
+                .d-flex.flex-column.ml-5.mr-5
                   -
                     var loginViaList = [
                       {
-                        text: "Login via Apple ID",
-                        image_url: "https://cdn.iconscout.com/icon/free/png-256/apple-ios-logo-mac-os-platform-system-5-4741.png"
+                        text: 'Login via Apple ID',
+                        image_url: 'https://cdn.iconscout.com/icon/free/png-256/apple-ios-logo-mac-os-platform-system-5-4741.png'
                       },
                       {
-                        text: "Login via Line ID",
-                        image_url: "https://cdn.worldvectorlogo.com/logos/line-messenger.svg"
+                        text: 'Login via Line ID',
+                        image_url: 'https://cdn.worldvectorlogo.com/logos/line-messenger.svg'
                       },
                       {
-                        text: "Login via Twitter ID",
-                        image_url: "https://exb5r2e7mwhhm1x2vvwfd1cy-wpengine.netdna-ssl.com/wp-content/uploads/2020/02/twitter-app-icon-transparent-17-2.png"
+                        text: 'Login via Twitter ID',
+                        image_url: 'https://exb5r2e7mwhhm1x2vvwfd1cy-wpengine.netdna-ssl.com/wp-content/uploads/2020/02/twitter-app-icon-transparent-17-2.png'
                       },
                       {
-                        text: "Login via Facebook ID",
-                        image_url: "https://cdn.iconscout.com/icon/free/png-256/facebook-224-498412.png"
+                        text: 'Login via Facebook ID',
+                        image_url: 'https://cdn.iconscout.com/icon/free/png-256/facebook-224-498412.png'
                       },
                       {
-                        text: "Login via Pasnavi ID",
-                        image_url: "https://passnavi.evidus.com/images/common/ico_megamenu_top.png"
+                        text: 'Login via Pasnavi ID',
+                        image_url: 'https://passnavi.evidus.com/images/common/ico_megamenu_top.png'
                       }
                     ]
                   each item in loginViaList
-                    a(href="#").d-inline-flex.align-items-center.bg-white.border.pt-2.pb-2.p-2.mt-1
-                      img.card__image.pr-3(src= item.image_url)
-                      .text-dark= item.text
-              .border-top.pb-2.pt-3
+                    +buttons-link({
+                      text: item.text,
+                      logoImageUrl: item.image_url,
+                      isFull: true
+                    })(class='justify-content-start text-dark font-weight-normal bg-white border mt-1')
+              .border-top.pt-3
                 h5 Footer
       .col-md
 
