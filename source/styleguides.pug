@@ -38,6 +38,10 @@ block main
         id: 'buttons',
         title: 'Buttons'
       },
+      {
+        id: 'forms',
+        title: 'Forms'
+      }
     ];
 
   .container-fluid
@@ -80,5 +84,7 @@ block main
                   include styleguides/_colors
                 when 'buttons'
                   include styleguides/_buttons
+                when 'forms'
+                  include styleguides/_forms
                 default
                   - throw new Error('"val.id" must be in "components" variable')

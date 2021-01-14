@@ -8,6 +8,10 @@
         "url": "login",
         "categories": "Authentication"
       }, {
+        "title": "Register",
+        "url": "register",
+        "categories": "Authentication"
+      }, {
         "title": "Forgot password",
         "url": "forgot-password",
         "categories": "Authentication"

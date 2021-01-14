@@ -22,11 +22,25 @@
     border-color: $primary;
   }
 
+  &--orange {
+    background-color: $orange;
+    border-color: $orange;
+  }
+
+  &--light-gray {
+    background-color: $light-gray;
+    border-color: $light-gray;
+  }
+
   &--full {
     border-radius: 0;
   }
 
   &--font-14 {
     font-size: 14px;
+  }
+
+  &--border-radius-6 {
+    border-radius: 6px;
   }
 }

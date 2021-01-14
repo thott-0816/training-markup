@@ -29,3 +29,9 @@ ol {
   list-style: none;
   padding: 0;
 }
+
+.main {
+  &__card {
+    width: 26rem;
+  }
+}

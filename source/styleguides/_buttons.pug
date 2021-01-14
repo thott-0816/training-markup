@@ -10,19 +10,27 @@ h2 Buttons Type
     { type: 'secondary' },
     { type: 'olight' },
     { type: 'blight' },
+    { type: 'orange' },
+    { type: 'light-gray' },
+    { 
+      type: 'primary',
+       size: 'border-radius-6'
+    }
   ];
 .row
-  each val in buttonTypes
+  each item in buttonTypes
     .col-3
       .code-example
         .demo
           +buttons({
             text: 'テキストデモ',
-            type: val.type
+            type: item.type,
+            size: item.size
           })
         pre
           code
             | +buttons({
-            |   text: 'テキストデモ',
-            |   type: '#{val.type}'
+            each val, key in item
+              |
+              | #{key}: #{val},
             | })

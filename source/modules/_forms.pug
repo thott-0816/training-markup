@@ -2,19 +2,47 @@
 //- Modules :: Buttons
 //-------------------------------------------------------
 
-mixin form-inputs({ attribute, label_text, placeholder, isInvalid })
+mixin form-inputs({ attribute, labelText, placeholder, noteMessage, isInvalid, invalidMessage, isRequired })
   .form-group(    
   )&attributes(attributes)
-    label.font-weight-bold(for= attribute)= label_text
-    input.form-control(
-      class= (isInvalid === true) ? 'is-invalid' : null
-      type= attribute
-      placeholder= placeholder
-    )
-    if (isInvalid === true)
-      .invalid-feedback Data Invalid
+    .field
+      label.font-weight-bold(
+        for= attribute
+      )= labelText
+      if (isRequired === true)
+        span.field_required Required
+      input.form-control(
+        class= (isInvalid === true) ? 'is-invalid' : null
+        type= attribute
+        placeholder= placeholder
+      )
+      if (noteMessage !== '' && noteMessage !== undefined)
+        .text-muted.mt-2= `* ${noteMessage}`
+      if (invalidMessage !== '' && invalidMessage !== undefined)
+        .text-danger= `! ${invalidMessage}`
 
-mixin form-checkbox({ id, label_text })
-  label.checkbox-container(for= id).d-flex.align-items-center&attributes(attributes)= label_text
+mixin form-checkbox({ id, labelText })
+  label.checkbox-container(for= id).d-flex.align-items-center&attributes(attributes)= labelText
     input(type='checkbox' id= id)
     span.checkmark
+
+mixin form-radio-button({ id, fieldName, labelOption, isChecked })
+  label.radio(for= id)&attributes(attributes)= labelOption
+    input.hidden(
+      type='radio'
+      name= fieldName
+      id= id
+      checked= (isChecked === true) ? 'checked' : null
+    )
+    span.label
+
+mixin label-required(labelName)
+  label.font-weight-bold= labelName
+    span.field_required Required
+
+mixin form-info({ label, value, isBorderTop })
+  if (isBorderTop === true)
+    .border-top.pt-2
+  .form-group.text-left
+    label.font-weight-bold= label
+    p= value
