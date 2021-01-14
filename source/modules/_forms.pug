@@ -1,0 +1,20 @@
+//-------------------------------------------------------
+//- Modules :: Buttons
+//-------------------------------------------------------
+
+mixin form-inputs({ attribute, label_text, placeholder, isInvalid })
+  .form-group(    
+  )&attributes(attributes)
+    label.font-weight-bold(for= attribute)= label_text
+    input.form-control(
+      class= (isInvalid === true) ? 'is-invalid' : null
+      type= attribute
+      placeholder= placeholder
+    )
+    if (isInvalid === true)
+      .invalid-feedback Data Invalid
+
+mixin form-checkbox({ id, label_text })
+  label.checkbox-container(for= id).d-flex.align-items-center&attributes(attributes)= label_text
+    input(type='checkbox' id= id)
+    span.checkmark
