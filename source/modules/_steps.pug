@@ -1,0 +1,5 @@
+mixin step(title)
+  li.step__item.js-step(
+    class= 'step--next'
+  )&attributes(attributes)
+    a.step__link(href='#')= title

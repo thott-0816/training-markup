@@ -1,0 +1,81 @@
+.step {
+  &__bar {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    margin-bottom: 3px;
+
+    &:first-child .step__link {
+      padding: 8px 0 8px 18px;
+    }
+
+    &:first-child .step__link:before {
+      border-left: 0 solid $light-blue;
+    }
+
+    .step__link:after {
+      border-bottom: 18px solid transparent;
+      border-left: 12px solid $light-blue;
+      border-top: 18px solid transparent;
+      content: '';
+      height: 0;
+      @include position(absolute, 50%, auto, auto, 100%);
+      width: 0;
+      margin-top: -18px;
+      z-index: 1;
+    }
+  }
+
+  &__link {
+    background: $light-blue;
+    padding: 8px 0 8px 28px;
+    color: $dark-blue;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    text-indent: -12px;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:before {
+      border-bottom: 18px solid transparent;
+      border-left: 12px solid $white;
+      border-top: 18px solid transparent;
+      content: '';
+      height: 0;
+      @include position(absolute, 50%, auto, auto, 0);
+      width: 0;
+      margin-top: -18px;
+    }
+  }
+
+  &--current &__link {
+    background: $primary;
+    color: $white;
+    text-indent: 3px;
+    padding: 8px 5px 8px 23px;
+  }
+
+  &--current &__link:after {
+    border-left: 12px solid $primary;
+  }
+
+  &--next &__link {
+    background: $light-gray2;
+    color: $dark;
+  }
+
+  &--next &__link:after {
+    border-left: 12px solid $light-gray2;
+  }
+
+  &__contents &__content:not(:first-child) {
+    display: none;
+  }
+}

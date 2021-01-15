@@ -1,0 +1,94 @@
+//-------------------------------------------------------
+//- Styleguides :: Forms
+//-------------------------------------------------------
+
+//- Buttons :: Type
+h2 Forms
+-
+  var formInputs = [
+    {
+      attribute: 'email',
+      labelText: 'Email',
+      placeholder: 'example@email.com',
+      noteMessage: 'Please enter correct fomart',
+      type: 'form-inputs'
+    },
+    {
+      attribute: 'email',
+      labelText: 'Email',
+      placeholder: 'example@email.com',
+      noteMessage: 'Please enter correct fomart',
+      isInvalid: true,
+      invalidMessage: 'Data invalid',
+      isRequired: true,
+      type: 'form-inputs'
+    },
+    {
+      label: 'Email',
+      value: 'example@email.com',
+      type: 'form-info'
+    },
+    {
+      label: 'Gender',
+      value: 'Male',
+      isBorderTop: true,
+      type: 'form-info'
+    },
+    {
+      id: 'genderMale',
+      fieldName: "gender",
+      labelOption: 'Male',
+      isChecked: true,
+      type: 'form-radio-buton'
+    },
+    {
+      id: 'genderFemale',
+      fieldName: "gender",
+      labelOption: 'Female',
+      type: 'form-radio-buton'
+    },
+    {
+      id: 'postOfficeNotification',
+      labelText: 'Remember me',
+      type: 'form-checkbox'
+    },
+    {
+      label: 'Gender',
+      type: 'label-required'
+    }
+  ];
+
+.row
+  each item in formInputs
+    .col-3
+      .code-example
+        .demo.text-left
+          case item.type
+            when 'form-inputs'
+              +form-inputs(item)            
+            when 'form-radio-buton'
+              +form-radio-button(item)
+            when 'form-checkbox'
+              +form-checkbox(item)
+            when 'form-info'
+              +form-info(item)
+            when 'label-required'
+              +label-required(item.label)
+        pre
+          code
+            case item.type
+              when 'form-inputs'
+                | +form-inputs({
+              when 'form-radio-buton'
+                | +form-radio-button({
+              when 'form-checkbox'
+                | +form-checkbox({
+              when 'form-info'
+                | +form-info({
+              when 'label-required'
+                | +label-required({
+            each val, key in item
+              if (key !== 'type')
+                br
+                | #{key}: #{val},
+            | })  

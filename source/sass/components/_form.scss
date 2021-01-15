@@ -14,15 +14,15 @@
     z-index: -1;
 
     &:checked ~ .checkmark {
-      background-color: $blue;
-      border: 1px solid $blue;
+      background-color: $primary;
+      border: 1px solid $primary;
     }
   }
 
   .checkmark {
     left: 0;
     @include size(18px, 18px);
-    border: 1px solid #6c757d;
+    border: 2px solid $light-gray;
     @include abs-center-ver;
     border-radius: 4px;
 
@@ -40,4 +40,64 @@
   input:checked ~ .checkmark:after {
     display: block;
   }
+}
+
+.radio {
+  position: relative;
+  cursor: pointer;
+  line-height: 20px;
+  font-size: 14px;
+  margin: 5px 15px;
+
+  &__label {
+    position: relative;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    @include square(20px);
+    border: 2px solid $light-gray;
+    border-radius: 100%;
+    -webkit-tap-highlight-color: transparent;
+
+    &:after {
+      content: '';
+      @include position(absolute, 3px, auto, auto, 3px);
+      @include square(10px);
+      border-radius: 100%;
+      background: $primary;
+      transform: scale(0);
+      transition: all .2s ease;
+      opacity: .08;
+      pointer-events: none;
+    }
+  }
+
+  &:hover &__label:after {
+    transform: scale(3.6);
+  }
+
+  &__input:checked + &__label {
+    border-color: $primary;
+
+    &:after {
+      transform: scale(1);
+      transition: all .2s cubic-bezier(.35, .9, .4, .9);
+      opacity: 1;
+    }
+  }
+}
+
+.required {
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-left: 5px;
+  text-align: center;
+  color: $white;
+  background-color: $red-required;
+  font-size: 10px;
+  line-height: 20px;
+  border-radius: 3px;
 }
