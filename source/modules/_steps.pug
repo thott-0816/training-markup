@@ -1,5 +1,5 @@
 mixin step(title)
-  li.step-bar__item(
-    class= 'step-bar__item--next'
+  li.step__item.js-step(
+    class= 'step--next'
   )&attributes(attributes)
-    a.step-bar__item-link(href='#')= title
+    a.step__link(href='#')= title

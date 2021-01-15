@@ -10,7 +10,7 @@ mixin form-inputs({ attribute, labelText, placeholder, noteMessage, isInvalid, i
         for= attribute
       )= labelText
       if (isRequired === true)
-        span.field_required Required
+        span.required Required
       input.form-control(
         class= (isInvalid === true) ? 'is-invalid' : null
         type= attribute
@@ -28,17 +28,17 @@ mixin form-checkbox({ id, labelText })
 
 mixin form-radio-button({ id, fieldName, labelOption, isChecked })
   label.radio(for= id)&attributes(attributes)= labelOption
-    input.hidden(
+    input.radio__input.d-none(
       type='radio'
       name= fieldName
       id= id
       checked= (isChecked === true) ? 'checked' : null
     )
-    span.label
+    span.radio__label
 
 mixin label-required(labelName)
   label.font-weight-bold= labelName
-    span.field_required Required
+    span.required Required
 
 mixin form-info({ label, value, isBorderTop })
   if (isBorderTop === true)
